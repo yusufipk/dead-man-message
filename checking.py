@@ -17,7 +17,7 @@ counter_file = "./counter_file.txt"  # File path for email counter
 DAYS_REMINDER = 25  # Days for the reminder period
 DAYS_DEADMAN = 30  # Days for the dead man's switch
 SECONDS_IN_A_DAY = 86400  # Number of seconds in a day
-count_sent_mail = 7  # Number of reminder emails to send
+count_sent_mail = 7  # Number of dead man mails to send after activation.
 
 family_members = ['mail@example.com']  # List of family members' email addresses
 
