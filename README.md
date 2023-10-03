@@ -36,7 +36,7 @@ You need to configure the script with your SMTP server settings and email detail
 - `DAYS_REMINDER`: Number of days for the reminder period.
 - `DAYS_DEADMAN`: Number of days for the Dead Man's Switch activation.
 - `SECONDS_IN_A_DAY`: Number of seconds in a day.
-- `count_sent_mail`: Number of reminder emails to send.
+- `count_sent_mail`: Number of dead man mails to send after activation.
 - `family_members`: List of family members' email addresses.
 - `files_to_attach`: List of files to attach to the emails.
 
