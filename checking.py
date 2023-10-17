@@ -4,33 +4,38 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+import json
+
+# Load configuration from JSON file
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
 
 # Configuration
-smtp_host = 'your_smpt_server'  # SMTP server hostname
-smtp_port = 587  # SMTP server port
-smtp_user = 'username'  # SMTP server username
-smtp_password = 'password'  # SMTP server password
-from_email = 'coming_from'  # Sender's email address
-to_email = 'going_to'  # Recipient's email address
-checkin_file = "./checkin_file.txt"  # File path for check-in timestamp
-counter_file = "./counter_file.txt"  # File path for email counter
-DAYS_REMINDER = 25  # Days for the reminder period
-DAYS_DEADMAN = 30  # Days for the dead man's switch
-SECONDS_IN_A_DAY = 86400  # Number of seconds in a day
-count_sent_mail = 7  # Number of dead man mails to send after activation.
+smtp_host = config['smtp_host']  # SMTP server hostname
+smtp_port = config['smtp_port']  # SMTP server port
+smtp_user = config['smtp_user']  # SMTP server username
+smtp_password = config['smtp_password']  # SMTP server password
+from_email = config['from_email']  # Sender's email address
+to_email = config['to_email'] # Recipient's email address
+checkin_file = config['checkin_file'] # File path for check-in timestamp
+counter_file = config['counter_file'] # File path for email counter
+DAYS_REMINDER = config['DAYS_REMINDER'] # Days for the reminder period
+DAYS_DEADMAN = config['DAYS_DEADMAN'] # Days for the dead man's switch
+SECONDS_IN_A_DAY = config['SECONDS_IN_A_DAY'] # Number of seconds in a day
+count_sent_mail = config['count_sent_mail'] # Number of dead man mails to send after activation.
 
-family_members = ['mail@example.com']  # List of family members' email addresses
+family_members = config['family_members'] # List of family members' email addresses
 
 # Email content
-reminder_subject = "REMINDER"  # Subject for the reminder email
-reminder_message = "Please check-in"  # Message for the reminder email
+reminder_subject = config['reminder_subject'] # Subject for the reminder email
+reminder_message = config['reminder_message'] # Message for the reminder email
 
-dead_man_activation_subject = "Dead Man's Switch Activated" # Subject for the activation email
-dead_man_activation_message = "You forgot to check-in" # Message for the activation email
+dead_man_activation_subject = config['dead_man_activation_subject'] # Subject for the activation email
+dead_man_activation_message = config['dead_man_activation_message'] # Message for the activation email
 
-dead_man_subject = "I Am Gone"  # Subject for the dead man's switch email
-dead_man_message = "I'm dead"  # Message for the dead man's switch email
-files_to_attach = ['file.gpg']  # List of files to attach
+dead_man_subject = config['dead_man_subject'] # Subject for the dead man's switch email
+dead_man_message = config['dead_man_message'] # Message for the dead man's switch email
+files_to_attach = config['files_to_attach'] # List of files to attach
 
 # Function to send an email
 def send_email(subject, message, to, attachments=[]):

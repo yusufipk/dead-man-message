@@ -1,4 +1,4 @@
 #!/bin/bash
 # Save the current timestamp to your checkin file
-date +%s > ./checkin_file.txt
+date +%s > "$(jq -r .checkin_file config.json)"
 echo "Checked in"
