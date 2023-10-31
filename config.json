@@ -1,0 +1,22 @@
+{
+  "smtp_host": "your_smpt_server",
+  "smtp_port": 587,
+  "smtp_user": "username",
+  "smtp_password": "password",
+  "from_email": "coming_from",
+  "to_email": "going_to",
+  "checkin_file": "./checkin_file.txt",
+  "counter_file": "./counter_file.txt",
+  "DAYS_REMINDER": 25,
+  "DAYS_DEADMAN": 30,
+  "SECONDS_IN_A_DAY": 86400,
+  "count_sent_mail": 7,
+  "family_members": ["mail@example.com"],
+  "reminder_subject": "REMINDER",
+  "reminder_message": "Please check-in",
+  "dead_man_activation_subject": "Dead Man's Switch Activated",
+  "dead_man_activation_message": "You forgot to check-in",
+  "dead_man_subject": "I Am Gone",
+  "dead_man_message": "I'm dead",
+  "files_to_attach": ["file.gpg"]
+}
